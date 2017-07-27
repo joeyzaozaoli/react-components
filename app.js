@@ -8,12 +8,25 @@ var GroceryList = (props) => (
 class GroceryListItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      bolded: false
+    };
   }
 
   render() {
+    var style = {
+      fontWeight: this.state.bolded ? 'bold' : null
+    };
+
     return (
-      <li>{this.props.item}</li>
+      <li style={style} onMouseOver={this.handleItemClick.bind(this)}>{this.props.item}</li>
     );
+  }
+
+  handleItemClick() {
+    this.setState({
+      bolded: !this.state.bolded
+    });
   }
 }
 
