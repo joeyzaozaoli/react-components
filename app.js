@@ -1,16 +1,12 @@
-var GroceryList = () => (
+var GroceryList = (props) => (
   <ul>
-    <Salad />
-    <IceCream />
+    <GroceryListItem item={props.items[0]}/>
+    <GroceryListItem item={props.items[1]}/>
   </ul>
 )
 
-var Salad = () => (
-  <li>Seaweed Salad</li>
+var GroceryListItem = (props) => (
+  <li>{props.item}</li>
 )
 
-var IceCream = () => (
-  <li>Coconut Ice Cream</li>
-)
-
-ReactDOM.render(<GroceryList />, document.getElementById('app'));
+ReactDOM.render(<GroceryList items={['Seaweed Salad', 'Coconut Ice Cream']}/>, document.getElementById('app'));
